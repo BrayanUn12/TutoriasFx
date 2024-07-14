@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.TextField?>
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.StudentControl">
+    <children>
+        <Label text="Que accion desea realizar?" />
+        <Button fx:id="addTutoring" text="Agragar Tutoria" onAction="#switchToAddTutoring"/>
+        <Button fx:id="deleteteTutoring" text="Eliminar Tutoria" onAction="#switchToDeleteTutoring"/>
+        <Button fx:id="findTutoring" text="Buscar Tutorias de docente" onAction="#switchToFindTutoring"/>
+        <Button fx:id="showTutoring" text="Mostrar tutorias agendadas" onAction="#switchToShowTutoring"/>
+
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>
