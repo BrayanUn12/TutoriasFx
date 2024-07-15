@@ -1,6 +1,7 @@
 module com.example {
     requires javafx.controls;
     requires javafx.fxml;
+    opens co.edu.uptc.model to com.google.gson;
     requires com.google.gson;
     exports co.edu.uptc.app;
     exports co.edu.uptc.controller;
