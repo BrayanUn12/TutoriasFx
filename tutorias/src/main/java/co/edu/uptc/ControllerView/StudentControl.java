@@ -1,11 +1,15 @@
 package co.edu.uptc.ControllerView;
 
 import co.edu.uptc.App;
+import co.edu.uptc.controller.Dia;
+import co.edu.uptc.controller.Evento;
 import co.edu.uptc.controller.StudentController;
 import co.edu.uptc.model.Estudent;
 import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -16,6 +20,8 @@ public class StudentControl {
 
     @FXML
     private TextField idStudent;
+    @FXML
+    private Label tutoring;
 
     @FXML
     private Button next;
@@ -31,22 +37,25 @@ public class StudentControl {
         }.getType();
         students = (ArrayList<Estudent>) controller.deserializeObecjtoCollectionfromJson(listType);
 
-
-        for (Estudent student : students){
-            if (student.getId() == id){
+        boolean studentFound = false;
+        for (Estudent student : students) {
+            if (id == student.getId()) {
                 System.out.println("id encontrado");
                 App.setRoot("menuStudent");
+                studentFound = true;
             }
         }
-
-        // Si el ID no es encontrado, puedes mostrar un mensaje de error o alerta
-
+        if (!studentFound) {
+            System.out.println("Student not found");
+            App.setRoot("student");
+        }
     }
 
     @FXML
     public void switchToAddTutoring() throws IOException {
-        App.setRoot("menuStudent");
+        App.setRoot("addTutoring");
     }
+    
     @FXML
     public void switchToBack() throws IOException {
         App.setRoot("main");
