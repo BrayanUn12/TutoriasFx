@@ -55,7 +55,7 @@ public class StudentControl {
     public void switchToAddTutoring() throws IOException {
         App.setRoot("addTutoring");
     }
-    
+
     @FXML
     public void switchToBack() throws IOException {
         App.setRoot("main");
