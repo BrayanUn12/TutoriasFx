@@ -18,34 +18,25 @@ import java.util.ArrayList;
 public class TutorController {
 
     @FXML
-    private TextField nameEvent;
-
-    
-    private ArrayList<Tutor> tutores;
-
-    @FXML
-    public void addEvent (){
-        
+    public void switchTutor() throws IOException {
+       App.setRoot("tutor");
     }
 
     @FXML
-    private void switchToAddTutoring () throws IOException{
+    public void switchToAddTutoring() throws IOException {
         App.setRoot("addEventTutor");
     }
 
     @FXML
-    private void showEvents()throws IOException{
-
+    public void switchToShow() throws IOException {
+        App.setRoot("main");
     }
-
-    @FXML 
-    private void deleteEvents ()throws IOException{
-
-    }
-
     @FXML
-    private void modifyEvents ()throws IOException{
-
+    public void switchToDElete () throws IOException {
+        App.setRoot("main");
     }
-
+    @FXML
+    public void switchToUpdate () throws IOException {
+        App.setRoot("main");
+    }
 }

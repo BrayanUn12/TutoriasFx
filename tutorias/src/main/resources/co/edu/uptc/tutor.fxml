@@ -9,9 +9,9 @@
     <children>
         <Label text="¿Que accion desea realizar?" />
         <Button fx:id="addEvent" text="Agregar nueva tutoria" onAction="#switchToAddTutoring"/>
-        <Button fx:id="showEvent" text="Ver Eventos" onAction="#showEvents"/>
-        <Button fx:id="showEvent" text="Borrar Evento" onAction="#deleteEvents"/>  
-        <Button fx:id="showEvent" text="Modificar Evento" onAction="#modifyEvents"/>  
+        <Button fx:id="viewEvents" text="Ver Eventos" onAction="#switchToShow"/>
+        <Button fx:id="deleteEvent" text="Borrar Evento" onAction="#switchToDElete"/>
+        <Button fx:id="updateEvent" text="Modificar Evento" onAction="#switchToUpdate"/>
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
