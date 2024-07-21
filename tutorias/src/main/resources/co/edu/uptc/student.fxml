@@ -10,7 +10,7 @@
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.StudentControl">
     <children>
         <Label text="Ingrese su id" />
-        <TextField fx:id="idStudent" layoutX = "150.0" layoutY="50.0" />
+        <TextField fx:id="idStudent" promptText="Escribe aqui" layoutX = "150.0" layoutY="50.0" />
         <HBox spacing="10.0" alignment="CENTER">
             <children>
                 <Button fx:id="Back" text="Anterior" onAction="#switchToBack"/>

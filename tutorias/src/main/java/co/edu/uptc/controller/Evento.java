@@ -71,8 +71,8 @@ public class Evento {
 
         @Override
         public String toString() {
-            return "Evento [nombre=" + nombre + ", descripcion=" + descripcion + ", horaInicio=" + horaInicio
-                    + ", horaFinal=" + horaFinal + ", inscrito=" + inscrito + "]";
+            return "Evento [\nnombre= " + nombre + ", \ndescripcion=" + descripcion + ", \nhoraInicio=" + horaInicio
+                    + ", \nhoraFinal=" + horaFinal + ", \ninscrito=" + inscrito + "]";
         } 
         
         

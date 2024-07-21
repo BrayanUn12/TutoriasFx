@@ -47,7 +47,7 @@ public class TutorControl {
         Archivos files = new Archivos();
         Gson gson = new GsonBuilder().registerTypeAdapter(LocalTime.class, localTimeDeserializer).setPrettyPrinting()
                 .create();
-        return gson.fromJson(files.readJsonFile("src//main//java//co//edu//uptc//persistence//Tutores.json"), listType);
+        return gson.fromJson(files.readJsonFile("/home/camila/Todos/Documentos/Downloads/proyecto/TutoriasFx/tutorias/src/main/java/co/edu/uptc/persistence/Tutores.json"), listType);
     }
 
     public void borrarTutoria(Tutor tutor, Evento evento) {

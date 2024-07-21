@@ -7,18 +7,20 @@
 
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.StudentControl">
+<VBox fx:id="tutoring" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.StudentControl">
     <children>
-        <Label text="Ingrese su id" />
-        <TextField fx:id="idStudent" promptText="Escribe aqui" layoutX = "150.0" layoutY="50.0" />
+        <Label text="Tutoria Agendada Exitosamente" />
         <HBox spacing="10.0" alignment="CENTER">
             <children>
-                <Button fx:id="Back" text="Anterior" onAction="#switchToBack"/>
-                <Button fx:id="next" text="Siguiente" onAction="#switchToValidId"/>
+                <Label text="¿Desea Agendar otra tutoria?" />
+                <Button fx:id="Back" text="Agendar" onAction="#switchToAddTutoring"/>
+                <Button fx:id="next" text="Cancelar " onAction="#switchToBack"/>
             </children>
         </HBox>
+
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 </VBox>
+

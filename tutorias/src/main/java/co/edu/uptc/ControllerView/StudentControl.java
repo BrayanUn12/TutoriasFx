@@ -23,45 +23,71 @@ public class StudentControl {
     private StudentController controller = new StudentController();
     private ArrayList<Estudent> students;
 
+    /**
+     * Metodo que valida que el id de el estudiante este en el archivo de persistencia.
+     * @throws IOException
+     */
     @FXML
     public void switchToValidId() throws IOException {
         String inputId = idStudent.getText();
         Integer id = Integer.parseInt(inputId);
+
         Type listType = new TypeToken<ArrayList<Estudent>>() {
         }.getType();
-        students = (ArrayList<Estudent>) controller.deserializeObecjtoCollectionfromJson(listType);
 
+        students = (ArrayList<Estudent>) controller.deserializeObecjtoCollectionfromJson(listType);
 
         for (Estudent student : students){
             if (student.getId() == id){
+                InteractionClass.getInstance(student);
                 System.out.println("id encontrado");
                 App.setRoot("menuStudent");
             }
         }
-
-        // Si el ID no es encontrado, puedes mostrar un mensaje de error o alerta
-
     }
 
+    /**
+     * Metodo que muestra las tutorias del estudiante disponiobles y permite agragarlas.
+     * @throws IOException
+     */
     @FXML
     public void switchToAddTutoring() throws IOException {
-        App.setRoot("menuStudent");
+       App.setRoot("addTutoring");
     }
+
+    /**
+     *
+     */
     @FXML
     public void switchToBack() throws IOException {
         App.setRoot("main");
     }
+
+    /**
+     * Metodo que permite eliminar una tutoria
+     * @throws IOException
+     */
     @FXML
     public void switchToDeleteTutoring() throws IOException {
-        App.setRoot("tutor");
+        App.setRoot("main");
     }
+
+    /**
+     * Metodo que que muestra las tutorias agendadas.
+     * @throws IOException
+     */
     @FXML
     public void switchToShowTutoring() throws IOException {
-        App.setRoot("tutor");
+        App.setRoot("main");
     }
+
+    /**
+     * Metodo que permite buscar una determinada tutoria 
+     * @throws IOException
+     */
     @FXML
     public void switchToFindTutoring() throws IOException {
-        App.setRoot("tutor");
+        App.setRoot("main");
     }
 
 }
