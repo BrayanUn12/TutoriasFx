@@ -7,32 +7,21 @@ import co.edu.uptc.model.Estudent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.control.Button;
-
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.scene.Scene; //Permite mostrar una ventana emergente, contenedor donde se muestran todos los nodos utilizado en el proyecto
 
-
-public class AddTutoringController implements Initializable {
+public class DeleteTutoringController implements Initializable {
 
     @FXML
-    private VBox tutoring; // Asegúrate de que 'tutoring' esté definido como VBox en tu archivo FXML
-
-    public void switchAddTutoring () throws IOException {
-        App.setRoot("addTutoring");
-    }
+    private VBox delete; // Asegúrate de que 'tutoring' esté definido como VBox en tu archivo FXML
 
 //    @Override
 //    public void initialize(URL location, ResourceBundle resources) {
@@ -53,7 +42,7 @@ public class AddTutoringController implements Initializable {
             HBox eventBox = new HBox();
             eventBox.setAlignment(Pos.CENTER);
             Label label = new Label("Hello; \n" + " " + dia.showEvents());
-            Button button = new Button("Añadir Tutoria");
+            Button button = new Button("Eliminar Tutoria");
 
             // Añade un manejador de eventos al botón usando una clase anónima
             button.setOnAction(new EventHandler<ActionEvent>() {
@@ -61,14 +50,13 @@ public class AddTutoringController implements Initializable {
                 public void handle(ActionEvent e) {
                     // Itera sobre los eventos y marca como inscritos los que no lo están
                     for (Evento evento : dia.getEventos()) {
-                        if (!evento.isInscrito()) {
-                            evento.setInscrito(true);
-
+                        if (evento.isInscrito() == true) {
+                            evento.setInscrito(false);
                         }
                     }
                     // Imprime el mensaje en la consola
                     try {
-                        switchtutoringAdd();
+                        switchtutoringDelete();
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
@@ -77,14 +65,14 @@ public class AddTutoringController implements Initializable {
             });
 
             eventBox.getChildren().addAll(label, button);
-            tutoring.getChildren().add(eventBox);
+            delete.getChildren().add(eventBox);
         }
     }
     public void switchToBack() throws IOException {
         App.setRoot("menuStudent");
     }
 
-    private void switchtutoringAdd() throws IOException {
-        App.setRoot("tutoringAdd");
+    private void switchtutoringDelete() throws IOException {
+        App.setRoot("tutoringDelete");
     }
 }

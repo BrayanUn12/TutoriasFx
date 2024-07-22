@@ -14,7 +14,7 @@
             <children>
                 <Label text="¿Desea Agendar otra tutoria?" />
                 <Button fx:id="Back" text="Agendar" onAction="#switchToAddTutoring"/>
-                <Button fx:id="next" text="Cancelar " onAction="#switchToBack"/>
+                <Button fx:id="next" text="Cancelar " onAction="#switchToBackMenu"/>
             </children>
         </HBox>
 

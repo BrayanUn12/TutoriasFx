@@ -28,13 +28,6 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        Label label = new Label("Hello World");
-
-        StackPane stackPane = new StackPane();
-
-        stackPane.getChildren().add(label); //Objeto que permite agragar nuevos nodos a la interfaz grafica.
-
-        scene = new Scene(stackPane, 640, 480);
         scene = new Scene(loadFXML("main"), 640, 480);
         stage.setScene(scene);
         stage.setTitle("GESTIÓN DE TUTORIAS");
