@@ -1,12 +1,15 @@
 package co.edu.uptc.ControllerView;
 
 import co.edu.uptc.model.Estudent;
+import co.edu.uptc.model.Tutor;
 
 public final class InteractionClass {
 
     private static InteractionClass instance;
 
     private Estudent student;
+
+    private Tutor tutor;
 
 
     public InteractionClass() {
@@ -22,6 +25,18 @@ public final class InteractionClass {
         return instance;
     }
 
+    private  InteractionClass(Tutor tutor) {
+        this.tutor = tutor;
+    }
+
+    public static InteractionClass getInstance(Tutor tutor){
+        if(instance == null){
+            instance = new InteractionClass(tutor);
+        }
+        return instance;
+    }
+
+
     public Estudent getStudent() {
         return student;
     }
@@ -30,5 +45,9 @@ public final class InteractionClass {
             instance = new InteractionClass();
         }
         return instance;
+    }
+
+    public Tutor getTutor(){
+        return tutor;
     }
 }

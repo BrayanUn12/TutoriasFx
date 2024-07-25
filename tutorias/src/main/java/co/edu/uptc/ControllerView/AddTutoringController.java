@@ -34,16 +34,6 @@ public class AddTutoringController implements Initializable {
         App.setRoot("addTutoring");
     }
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        Estudent student = InteractionClass.getInstance().getStudent();
-//        StringBuilder eventsText = new StringBuilder();
-//
-//        for (Dia dia : student.getCalendarios()) {
-//            eventsText.append("Hello; \n").append(" ").append(dia.showEvents()).append("\n");
-//        }
-//        tutoring.setText(eventsText.toString());
-//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

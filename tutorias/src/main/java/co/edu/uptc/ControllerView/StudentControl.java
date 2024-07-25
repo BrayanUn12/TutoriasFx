@@ -5,12 +5,16 @@ import co.edu.uptc.controller.StudentController;
 import co.edu.uptc.model.Estudent;
 import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class StudentControl {
 
@@ -96,5 +100,4 @@ public class StudentControl {
     public void switchToFindTutoring() throws IOException {
         App.setRoot("main");
     }
-
 }

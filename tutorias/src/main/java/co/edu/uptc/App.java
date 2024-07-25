@@ -4,8 +4,7 @@ import javafx.application.Application;//Importacion que permite crear la aplicac
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene; //Permite mostrar una ventana emergente, contenedor donde se muestran todos los nodos utilizado en el proyecto
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
+
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,7 +26,6 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-
         scene = new Scene(loadFXML("main"), 640, 480);
         stage.setScene(scene);
         stage.setTitle("GESTIÓN DE TUTORIAS");
