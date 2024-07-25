@@ -23,16 +23,9 @@ public class DeleteTutoringController implements Initializable {
     @FXML
     private VBox delete; // Asegúrate de que 'tutoring' esté definido como VBox en tu archivo FXML
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        Estudent student = InteractionClass.getInstance().getStudent();
-//        StringBuilder eventsText = new StringBuilder();
-//
-//        for (Dia dia : student.getCalendarios()) {
-//            eventsText.append("Hello; \n").append(" ").append(dia.showEvents()).append("\n");
-//        }
-//        tutoring.setText(eventsText.toString());
-//    }
+    public void switchDeleteTutoring () throws IOException {
+        App.setRoot("deleteTutoring");
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -56,7 +49,7 @@ public class DeleteTutoringController implements Initializable {
                     }
                     // Imprime el mensaje en la consola
                     try {
-                        switchtutoringDelete();
+                        switchTutoringDelete();
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
@@ -72,7 +65,7 @@ public class DeleteTutoringController implements Initializable {
         App.setRoot("menuStudent");
     }
 
-    private void switchtutoringDelete() throws IOException {
+    public void switchTutoringDelete() throws IOException {
         App.setRoot("tutoringDelete");
     }
 }

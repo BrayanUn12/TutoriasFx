@@ -7,14 +7,14 @@
 
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
-<VBox fx:id="tutoring" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.StudentControl">
+<VBox fx:id="delete" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.DeleteTutoringController">
     <children>
         <Label text="Tutoria Eliminada Exitosamente" />
         <HBox spacing="10.0" alignment="CENTER">
             <children>
                 <Label text="¿Desea Eliminar otra tutoria?" />
-                <Button fx:id="Back" text="Eliminar" onAction="#switchToAddTutoring"/>
-                <Button fx:id="next" text="Cancelar " onAction="#switchToBackMenu"/>
+                <Button fx:id="Back" text="Eliminar" onAction="#switchDeleteTutoring"/>
+                <Button fx:id="next" text="Cancelar " onAction="#switchToBack"/>
             </children>
         </HBox>
 

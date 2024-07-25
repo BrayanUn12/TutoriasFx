@@ -28,7 +28,7 @@ import javafx.scene.Scene; //Permite mostrar una ventana emergente, contenedor d
 public class AddTutoringController implements Initializable {
 
     @FXML
-    private VBox tutoring; // Asegúrate de que 'tutoring' esté definido como VBox en tu archivo FXML
+    private VBox tutoring;
 
     public void switchAddTutoring () throws IOException {
         App.setRoot("addTutoring");
@@ -42,7 +42,18 @@ public class AddTutoringController implements Initializable {
         for (Dia dia : student.getCalendarios()) {
             HBox eventBox = new HBox();
             eventBox.setAlignment(Pos.CENTER);
-            Label label = new Label("Hello; \n" + " " + dia.showEvents());
+
+            Label state = new Label();
+            if (dia.getEventos().get(0).isInscrito() == false){
+                state.setText("No agendada");
+            }else {
+                state.setText("Agendada");
+            }
+
+            Label label = new Label(dia.getNombre() + "\n" + dia.getEventos().get(0).getNombre() +
+                    "\nTema: " + dia.getEventos().get(0).getDescripcion() + "\n " + dia.getEventos().get(0).getHoraInicio() +
+                    "-" + dia.getEventos().get(0).getHoraFinal() + "\n" + state.getText());
+
             Button button = new Button("Añadir Tutoria");
 
             // Añade un manejador de eventos al botón usando una clase anónima
@@ -53,12 +64,14 @@ public class AddTutoringController implements Initializable {
                     for (Evento evento : dia.getEventos()) {
                         if (!evento.isInscrito()) {
                             evento.setInscrito(true);
-
+                        }else if (evento.isInscrito() == true){
+                            evento.isInscrito();
+                            System.out.println("Tutoria ya inscrita");
                         }
                     }
                     // Imprime el mensaje en la consola
                     try {
-                        switchtutoringAdd();
+                        switchTutoringAdd();
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
                     }
@@ -74,7 +87,7 @@ public class AddTutoringController implements Initializable {
         App.setRoot("menuStudent");
     }
 
-    private void switchtutoringAdd() throws IOException {
+    private void switchTutoringAdd() throws IOException {
         App.setRoot("tutoringAdd");
     }
 }

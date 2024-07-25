@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -16,16 +17,51 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class StudentControl {
+public class StudentControl implements Initializable {
 
     @FXML
     private TextField idStudent;
 
     @FXML
-    private Button next;
+    private Label labelName;
+
+    @FXML
+    private Label labelCode;
+
+    @FXML
+    private Button addTutoring;
+
+    @FXML
+    private Button deleteTutoring;
+
+    @FXML
+    private Button showTutoring;
 
     private StudentController controller = new StudentController();
     private ArrayList<Estudent> students;
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        Estudent student = InteractionClass.getInstance().getStudent();
+        labelName.setText(student.getFirstName() + " " + student.getLastName() );
+        String code = String.valueOf(student.getCodigo());
+        labelCode.setText(code);
+
+        // Modificar el tamaño de los botones
+        setButtonSize(addTutoring, 210, 30);
+        setButtonSize(deleteTutoring, 210, 30);
+        setButtonSize(showTutoring, 210, 30);
+    }
+
+    private void setButtonSize(Button button, double width, double height) {
+        button.setPrefWidth(width);
+        button.setPrefHeight(height);
+        button.setMinWidth(width);
+        button.setMinHeight(height);
+        button.setMaxWidth(width);
+        button.setMaxHeight(height);
+    }
 
     /**
      * Metodo que valida que el id de el estudiante este en el archivo de persistencia.
