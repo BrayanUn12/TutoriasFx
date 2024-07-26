@@ -55,7 +55,7 @@ public class Dia {
 
     @Override
     public String toString() {
-        return "Dia [nombre=" + nombre + ", eventos=" + eventos + "]";
+        return "Dia [nombre=" + nombre + ", eventos= \n" + eventos + "]";
     }
 
 }
