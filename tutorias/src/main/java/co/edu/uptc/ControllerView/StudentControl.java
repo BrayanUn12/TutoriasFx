@@ -94,12 +94,7 @@ public class StudentControl implements Initializable {
      */
     @FXML
     public void switchToAddTutoring() throws IOException {
-        App.setRoot("addTutoring");
-    }
-
-    @FXML
-    public void switchToBackMenu() throws IOException {
-        App.setRoot("menuStudent");
+        App.setRoot("addTutoringStudent");
     }
 
     /**
@@ -116,7 +111,7 @@ public class StudentControl implements Initializable {
      */
     @FXML
     public void switchToDeleteTutoring() throws IOException {
-        App.setRoot("deleteTutoring");
+        App.setRoot("deleteTutoringStudent");
     }
 
     /**
@@ -125,7 +120,7 @@ public class StudentControl implements Initializable {
      */
     @FXML
     public void switchToShowTutoring() throws IOException {
-        App.setRoot("showTutoring");
+        App.setRoot("showTutoringStudent");
     }
 
     /**
@@ -133,7 +128,7 @@ public class StudentControl implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void switchToFindTutoring() throws IOException {
+    public void switchClose () throws IOException {
         App.setRoot("main");
     }
 }

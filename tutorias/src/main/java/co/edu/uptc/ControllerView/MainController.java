@@ -33,10 +33,6 @@ public class MainController {
         }
     }
 
-    @FXML
-    public void switchToTutor() throws IOException {
-        App.setRoot("tutor");
-    }
 
     public String findIdStudent(TextField idUser) throws IOException {
         String id = idUser.getText();
