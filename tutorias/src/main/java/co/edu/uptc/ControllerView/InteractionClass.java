@@ -35,8 +35,6 @@ public final class InteractionClass {
         }
         return instance;
     }
-
-
     public Estudent getStudent() {
         return student;
     }

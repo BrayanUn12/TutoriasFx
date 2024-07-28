@@ -37,6 +37,9 @@ public class StudentControl implements Initializable {
     @FXML
     private Button showTutoring;
 
+    @FXML
+    private Button findTutor;
+
     private StudentController controller = new StudentController();
     private ArrayList<Estudent> students;
 
@@ -49,6 +52,7 @@ public class StudentControl implements Initializable {
         labelCode.setText(code);
 
         // Modificar el tamaño de los botones
+        setButtonSize(findTutor, 210, 30);
         setButtonSize(addTutoring, 210, 30);
         setButtonSize(deleteTutoring, 210, 30);
         setButtonSize(showTutoring, 210, 30);
@@ -95,6 +99,11 @@ public class StudentControl implements Initializable {
     @FXML
     public void switchToAddTutoring() throws IOException {
         App.setRoot("addTutoringStudent");
+    }
+
+    @FXML
+    public void switchToFindTutor() throws IOException {
+        App.setRoot("findTutor");
     }
 
     /**

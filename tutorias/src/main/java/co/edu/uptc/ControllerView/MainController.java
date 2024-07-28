@@ -7,6 +7,7 @@ import co.edu.uptc.model.Estudent;
 import co.edu.uptc.model.Tutor;
 import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -26,11 +27,29 @@ public class MainController {
 
     @FXML
     public void switchToUser() throws IOException {
-        if (findIdStudent(idUser) != null){
-            App.setRoot("menuStudent");
-        }else if (findIdTutor(idUser) != null){
-            App.setRoot("tutor");
+        try {
+            if (idUser.getText().equals("") || idUser.getText() == null ) {
+                alertShow("Tiene que ingresar su ID");
+            }else {
+                if (findIdStudent(idUser) != null){
+                    App.setRoot("menuStudent");
+                }else if (findIdTutor(idUser) != null){
+                    App.setRoot("tutor");
+                }else {
+                   alertShow("El ID no existe");
+                }
+            }
+        }catch (Exception e){
+            alertShow("Información no valida, ingrese su ID");
         }
+    }
+
+    public void alertShow (String massage){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("");
+        alert.setHeaderText(null);
+        alert.setContentText(massage);
+        alert.show();
     }
 
 

@@ -3,28 +3,40 @@ package co.edu.uptc.ControllerView;
 import co.edu.uptc.App;
 import co.edu.uptc.controller.Dia;
 import co.edu.uptc.controller.Evento;
+import co.edu.uptc.controller.TutorControl;
 import co.edu.uptc.model.DataTable;
 import co.edu.uptc.model.Estudent;
+import co.edu.uptc.model.Tutor;
+import com.google.gson.reflect.TypeToken;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ShowTutoringStuController implements Initializable {
+public class FindTutorStudentController implements Initializable {
+
+    private TutorControl controller = new TutorControl();
+    private ArrayList<Tutor> tutors;
 
     @FXML
     private Label labelName;
 
     @FXML
     private Label labelCode;
+
+    @FXML
+    private ComboBox<String> comboBox;
 
     @FXML
     private TableView<DataTable> table;
@@ -41,26 +53,31 @@ public class ShowTutoringStuController implements Initializable {
     @FXML
     private TableColumn<DataTable, String> colTime;
 
-
     private ObservableList<DataTable> eventList;
 
-    public void initializeLabel() {
-        Estudent student = InteractionClass.getInstance().getStudent();
-        labelName.setText(student.getFirstName() + " " + student.getLastName());
-        String code = String.valueOf(student.getCodigo());
-        labelCode.setText(code);
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Estudent student = InteractionClass.getInstance().getStudent();
-        initializeLabel();
+        labelName.setText(student.getFirstName() + " " + student.getLastName());
+        labelCode.setText(String.valueOf(student.getCodigo()));
+        loadTutors();
+    }
+
+    public void showMattersTutor() {
+        Estudent student = InteractionClass.getInstance().getStudent();
+        String selectedTutorName = comboBox.getSelectionModel().getSelectedItem();
 
         eventList = FXCollections.observableArrayList();
-        for (Dia dia : student.getCalendarios()) {
-            for (Evento evento : dia.getEventos()) {
-                if (evento.isInscrito() == true) {
-                    eventList.add(new DataTable(dia.getNombre(), evento));
+        if (selectedTutorName != null) {
+            for (Tutor tutor : tutors) {
+                String tutorFullName = tutor.getFirstName() + " " + tutor.getLastName();
+                if (selectedTutorName.equals(tutorFullName)) {
+                    for (Dia dia : tutor.getCalendarios()) {
+                        for (Evento evento : dia.getEventos()){
+                            eventList.add(new DataTable(dia.getNombre(), evento));
+                        }
+                    }
                 }
             }
         }
@@ -84,8 +101,22 @@ public class ShowTutoringStuController implements Initializable {
         colTime.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
     }
 
+    private void loadTutors() {
+        Type listType = new TypeToken<ArrayList<Tutor>>() {}.getType();
+        tutors = (ArrayList<Tutor>) controller.deserializeObecjtoCollectionfromJson(listType);
+
+        ArrayList<String> listTutors = new ArrayList<>();
+        for (Tutor tutor : tutors) {
+            listTutors.add(tutor.getFirstName() + " " + tutor.getLastName());
+        }
+
+        ObservableList<String> observableListTutors = FXCollections.observableArrayList(listTutors);
+        comboBox.setItems(observableListTutors);
+    }
+
     public void switchToBack() throws IOException {
         App.setRoot("menuStudent");
     }
-
 }
+
+
