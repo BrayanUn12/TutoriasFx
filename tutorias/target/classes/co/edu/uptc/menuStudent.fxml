@@ -7,7 +7,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.layout.HBox?>
 
 <VBox fx:id="menuStudent" alignment="TOP_LEFT" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.StudentControl">
@@ -32,16 +31,18 @@
                 </HBox>
             </children>
         </AnchorPane>
+        <Label alignment="CENTER" text="BIENVENIDO A GESTION DE TUTORIAS" style="-fx-font-size: 20px; -fx-font-weight: bold "/>
+
         <HBox spacing="10.0" alignment="CENTER_LEFT">
             <children>
                 <VBox spacing="10.0" alignment="CENTER">
                     <children>
-                        <Button fx:id="addTutoring" text="Agregar Tutoria" onAction="#switchToAddTutoring"/>
-                        <Button fx:id="deleteTutoring" text="Eliminar Tutoria" onAction="#switchToDeleteTutoring"/>
+                        <Button fx:id="findTutor" text="Buscar Tutor" onAction="#switchToFindTutor"/>
+                        <Button fx:id="addTutoring" text="Agendar Tutoria" onAction="#switchToAddTutoring"/>
+                        <Button fx:id="deleteTutoring" text="Cancelar Tutoria" onAction="#switchToDeleteTutoring"/>
                         <Button fx:id="showTutoring" text="Mostrar tutorias agendadas" onAction="#switchToShowTutoring"/>
                     </children>
                     <Button fx:id="close" text="salir" onAction="#switchClose" style="-fx-background-color: #6699CC; -fx-border-color: #D6DBDF;"/>
-
                 </VBox>
                 <ImageView fitHeight="320.0" fitWidth="372.0" pickOnBounds="true" preserveRatio="true">
                     <image>

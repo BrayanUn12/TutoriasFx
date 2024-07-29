@@ -3,31 +3,28 @@ package co.edu.uptc.ControllerView;
 import co.edu.uptc.App;
 import co.edu.uptc.controller.Dia;
 import co.edu.uptc.controller.Evento;
+import co.edu.uptc.model.DataTable;
 import co.edu.uptc.model.Estudent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-
 import java.util.ResourceBundle;
 
-
 public class AddTutoringStuController implements Initializable {
-
-    @FXML
-    private VBox tutoring;
 
     @FXML
     private Label labelName;
@@ -35,7 +32,27 @@ public class AddTutoringStuController implements Initializable {
     @FXML
     private Label labelCode;
 
-    public void switchAddTutoring () throws IOException {
+    @FXML
+    private TableView<DataTable> table;
+
+    @FXML
+    private TableColumn<DataTable, String> colDia;
+
+    @FXML
+    private TableColumn<DataTable, String> colMatter;
+
+    @FXML
+    private TableColumn<DataTable, String> colDescription;
+
+    @FXML
+    private TableColumn<DataTable, String> colTime;
+
+    @FXML
+    private TableColumn<DataTable, Button> colAction;
+
+    private ObservableList<DataTable> eventList;
+
+    public void switchAddTutoring() throws IOException {
         App.setRoot("addTutoringStudent");
     }
 
@@ -51,57 +68,95 @@ public class AddTutoringStuController implements Initializable {
         Estudent student = InteractionClass.getInstance().getStudent();
         initializeLabel();
 
+        eventList = FXCollections.observableArrayList();
         for (Dia dia : student.getCalendarios()) {
-            HBox eventBox = new HBox();
-            eventBox.setAlignment(Pos.CENTER);
-
-            Label state = new Label();
-            if (dia.getEventos().get(0).isInscrito() == false){
-                state.setText("No agendada");
-            }else {
-                state.setText("Agendada");
-            }
-
-
-        Label label = new Label(dia.getNombre() + "\t" + dia.getEventos().get(0).getNombre() +
-                    "\t  Tema: " + dia.getEventos().get(0).getDescripcion() + "\t " + dia.getEventos().get(0).getHoraInicio() +
-                    "-" + dia.getEventos().get(0).getHoraFinal() + "\t " + state.getText());
-
-            Button button = new Button("Añadir Tutoria");
-
-            // Añade un manejador de eventos al botón usando una clase anónima
-            button.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent e) {
-                    // Itera sobre los eventos y marca como inscritos los que no lo están
-                    for (Evento evento : dia.getEventos()) {
-                        if (!evento.isInscrito()) {
-                            evento.setInscrito(true);
-                        }else if (evento.isInscrito() == true){
-                            evento.isInscrito();
-                            System.out.println("Tutoria ya inscrita");
-                        }
-                    }
-                    // Imprime el mensaje en la consola
-                    try {
-                        switchTutoringAdd();
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-
+            for (Evento evento : dia.getEventos()) {
+                if (!evento.isInscrito()) {
+                    DataTable dataTable = new DataTable(dia.getNombre(), evento);
+                    dataTable.setButton(createActionButton(dataTable)); // Añade el botón con el EventHandler
+                    eventList.add(dataTable);
                 }
-            });
-
-            eventBox.getChildren().addAll(label, button);
-            tutoring.getChildren().add(eventBox);
+            }
         }
 
+        colDia.setCellValueFactory(new PropertyValueFactory<>("diaNombre"));
+        colMatter.setCellValueFactory(new PropertyValueFactory<>("nombreEvento"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("descripcionEvento"));
+        colTime.setCellValueFactory(new PropertyValueFactory<>("horaEvento"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("button"));
+
+        table.setItems(eventList);
+
+        adjustColumnWidths();
     }
+    private Button createActionButton(DataTable dataTable) {
+        Button actionButton = new Button("Agendar");
+        actionButton.setStyle("-fx-background-color: #66FF33; -fx-border-color: #D6DBDF;");
+
+        actionButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (!dataTable.getEvento().isInscrito() ) {
+                    dataTable.getEvento().setInscrito(true);
+                    switchTutoringAdd();
+                    table.refresh();
+                }
+                // Aquí puedes añadir la lógica para agendar la tutoría
+                // Por ejemplo, marcar el evento como inscrito y actualizar la tabla
+                dataTable.setEstadoEvento("Agendada");
+                eventList.remove(dataTable);
+                // Muestra el popup de confirmación
+            }
+        });
+
+        return actionButton;
+    }
+
+    private void adjustColumnWidths() {
+        double columnCount = 5.0; // El número total de columnas
+
+        colDia.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+        colMatter.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+        colDescription.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+        colTime.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+        colAction.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+    }
+
     public void switchToBack() throws IOException {
         App.setRoot("menuStudent");
     }
 
-    private void switchTutoringAdd() throws IOException {
-        App.setRoot("tutoringAddStudent");
+    private void switchTutoringAdd() {
+        VBox popupContent = new VBox();
+        popupContent.setAlignment(Pos.CENTER);
+        popupContent.setSpacing(20);
+
+        Label messageLabel = new Label("Tutoria Agendada Exitosamente");
+        HBox buttonBox = new HBox();
+        buttonBox.setAlignment(Pos.CENTER);
+        buttonBox.setSpacing(10);
+
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.setTitle("Tutoria Agendada");
+
+        Button agendarButton = new Button("Aceptar");
+        agendarButton.setStyle("-fx-background-color: #66FF33; -fx-border-color: #D6DBDF;");
+        agendarButton.setOnAction(e -> {
+            popupStage.close();
+            try {
+                switchAddTutoring();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        buttonBox.getChildren().addAll(agendarButton);
+        popupContent.getChildren().addAll(messageLabel, buttonBox);
+
+        Scene popupScene = new Scene(popupContent, 300, 150);
+        popupStage.setScene(popupScene);
+        popupStage.showAndWait();
     }
 }
+

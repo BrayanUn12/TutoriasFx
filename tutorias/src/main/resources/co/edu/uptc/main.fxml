@@ -21,7 +21,10 @@
                         </Label>
                     </children>
                 </AnchorPane>
-                <TextField fx:id="idUser" layoutX="70.0" layoutY="192.0" prefHeight="37.0" prefWidth="211.0" promptText="Ingresé su Id.">
+
+                <Label layoutX="70.0" layoutY="172.0" text="Identificación" style="-fx-font-size: 15px; -fx-font-family: 'Bitstream Charter'"/>
+
+                <TextField fx:id="idUser" layoutX="70.0" layoutY="200.0" prefHeight="37.0" prefWidth="211.0" promptText="Ingresé su Id.">
                     <font>
                         <Font size="15.0" />
                     </font>
