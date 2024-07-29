@@ -7,7 +7,7 @@
 
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
-<VBox fx:id="show" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.ShowTutoringController">
+<VBox fx:id="show" alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.ShowTutoringStuController">
     <children >
         <Label text="Tutorias Agendadas" />
         <Button fx:id="button"  alignment="BASELINE_LEFT" text="Aceptar" onAction="#switchToBack"/>

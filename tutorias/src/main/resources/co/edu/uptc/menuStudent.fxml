@@ -34,12 +34,14 @@
         </AnchorPane>
         <HBox spacing="10.0" alignment="CENTER_LEFT">
             <children>
-                <VBox spacing="10.0" alignment="CENTER_LEFT">
+                <VBox spacing="10.0" alignment="CENTER">
                     <children>
                         <Button fx:id="addTutoring" text="Agregar Tutoria" onAction="#switchToAddTutoring"/>
                         <Button fx:id="deleteTutoring" text="Eliminar Tutoria" onAction="#switchToDeleteTutoring"/>
                         <Button fx:id="showTutoring" text="Mostrar tutorias agendadas" onAction="#switchToShowTutoring"/>
                     </children>
+                    <Button fx:id="close" text="salir" onAction="#switchClose" style="-fx-background-color: #6699CC; -fx-border-color: #D6DBDF;"/>
+
                 </VBox>
                 <ImageView fitHeight="320.0" fitWidth="372.0" pickOnBounds="true" preserveRatio="true">
                     <image>

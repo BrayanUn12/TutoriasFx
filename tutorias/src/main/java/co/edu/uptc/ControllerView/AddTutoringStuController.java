@@ -7,37 +7,49 @@ import co.edu.uptc.model.Estudent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+
 import java.util.ResourceBundle;
-import javafx.scene.Scene; //Permite mostrar una ventana emergente, contenedor donde se muestran todos los nodos utilizado en el proyecto
 
 
-public class AddTutoringController implements Initializable {
+public class AddTutoringStuController implements Initializable {
 
     @FXML
     private VBox tutoring;
 
+    @FXML
+    private Label labelName;
+
+    @FXML
+    private Label labelCode;
+
     public void switchAddTutoring () throws IOException {
-        App.setRoot("addTutoring");
+        App.setRoot("addTutoringStudent");
     }
 
+    public void initializeLabel() {
+        Estudent student = InteractionClass.getInstance().getStudent();
+        labelName.setText(student.getFirstName() + " " + student.getLastName());
+        String code = String.valueOf(student.getCodigo());
+        labelCode.setText(code);
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Estudent student = InteractionClass.getInstance().getStudent();
+        initializeLabel();
 
         for (Dia dia : student.getCalendarios()) {
             HBox eventBox = new HBox();
@@ -50,9 +62,10 @@ public class AddTutoringController implements Initializable {
                 state.setText("Agendada");
             }
 
-            Label label = new Label(dia.getNombre() + "\n" + dia.getEventos().get(0).getNombre() +
-                    "\nTema: " + dia.getEventos().get(0).getDescripcion() + "\n " + dia.getEventos().get(0).getHoraInicio() +
-                    "-" + dia.getEventos().get(0).getHoraFinal() + "\n" + state.getText());
+
+        Label label = new Label(dia.getNombre() + "\t" + dia.getEventos().get(0).getNombre() +
+                    "\t  Tema: " + dia.getEventos().get(0).getDescripcion() + "\t " + dia.getEventos().get(0).getHoraInicio() +
+                    "-" + dia.getEventos().get(0).getHoraFinal() + "\t " + state.getText());
 
             Button button = new Button("Añadir Tutoria");
 
@@ -82,12 +95,13 @@ public class AddTutoringController implements Initializable {
             eventBox.getChildren().addAll(label, button);
             tutoring.getChildren().add(eventBox);
         }
+
     }
     public void switchToBack() throws IOException {
         App.setRoot("menuStudent");
     }
 
     private void switchTutoringAdd() throws IOException {
-        App.setRoot("tutoringAdd");
+        App.setRoot("tutoringAddStudent");
     }
 }

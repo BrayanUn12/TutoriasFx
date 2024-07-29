@@ -18,13 +18,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DeleteTutoringController implements Initializable {
+public class DeleteTutoringStuController implements Initializable {
 
     @FXML
     private VBox delete; // Asegúrate de que 'tutoring' esté definido como VBox en tu archivo FXML
 
     public void switchDeleteTutoring () throws IOException {
-        App.setRoot("deleteTutoring");
+        App.setRoot("deleteTutoringStudent");
     }
 
     @Override
@@ -66,6 +66,6 @@ public class DeleteTutoringController implements Initializable {
     }
 
     public void switchTutoringDelete() throws IOException {
-        App.setRoot("tutoringDelete");
+        App.setRoot("tutoringDeleteStudent");
     }
 }

@@ -4,21 +4,18 @@ import co.edu.uptc.App;
 import co.edu.uptc.controller.Dia;
 import co.edu.uptc.controller.Evento;
 import co.edu.uptc.model.Estudent;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ShowTutoringController implements Initializable {
+public class ShowTutoringStuController implements Initializable {
     @FXML
     private VBox show; // Asegúrate de que 'tutoring' esté definido como VBox en tu archivo FXML
 
