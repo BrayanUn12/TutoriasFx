@@ -1,45 +1,56 @@
 [
-    {
-      "id": 77,
-      "firstName": "Juan",
-      "lastName": "Perez",
-      "calendarios": [
-        {
-          "nombre": "Lunes",
-          "eventos": []
-        },
-        {
-          "nombre": "pp",
-          "eventos": [
-            {
-              "nombre": "pp",
-              "descripcion": "qq",
-              "horaInicio": "01:00:00",
-              "horaFinal": "01:30:00",
-              "inscrito": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 22,
-      "firstName": "Felipe",
-      "lastName": "Maldonado",
-      "calendarios": [
-        {
-          "nombre": "Jueves",
-          "eventos": [
-            {
-              "nombre": "Programacion",
-              "descripcion": "herencia",
-              "horaInicio": "03:00:00",
-              "horaFinal": "03:30:00",
-              "inscrito": false
-            }
-          ]
-        }
-      ]
-    }
-  ]
-  
+  {
+    "id": 77,
+    "firstName": "Juan",
+    "lastName": "Perez",
+    "calendarios": [
+      {
+        "nombre": "Lunes",
+        "eventos": [
+          {
+            "nombre": "Biologia",
+            "descripcion": "Flores",
+            "horaInicio": "09:00:00",
+            "horaFinal": "10:30:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "pp",
+        "eventos": []
+      },
+      {
+        "nombre": "Martes",
+        "eventos": [
+          {
+            "nombre": "Calculo",
+            "descripcion": "Vec",
+            "horaInicio": "01:00:00",
+            "horaFinal": "01:30:00",
+            "inscrito": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "firstName": "Felipe",
+    "lastName": "Maldonado",
+    "calendarios": [
+      {
+        "nombre": "Jueves",
+        "eventos": [
+          {
+            "nombre": "Programacion",
+            "descripcion": "herencia",
+            "horaInicio": "03:00:00",
+            "horaFinal": "03:30:00",
+            "inscrito": false
+          }
+        ]
+      }
+    ]
+  }
+]
