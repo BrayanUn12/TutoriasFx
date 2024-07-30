@@ -133,7 +133,7 @@ public class StudentControl implements Initializable {
     }
 
     /**
-     * Metodo que permite buscar una determinada tutoria 
+     * Metodo que permite buscar una determinada tutoria
      * @throws IOException
      */
     @FXML
@@ -141,3 +141,4 @@ public class StudentControl implements Initializable {
         App.setRoot("main");
     }
 }
+

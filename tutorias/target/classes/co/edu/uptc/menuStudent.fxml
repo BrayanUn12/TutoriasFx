@@ -11,50 +11,53 @@
 
 <VBox fx:id="menuStudent" alignment="TOP_LEFT" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.StudentControl">
     <children>
-        <AnchorPane layoutX="1.0" layoutY="1.0" prefHeight="45.0" prefWidth="307.0" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF;">
+        <AnchorPane layoutX="1.0" layoutY="1.0" prefHeight="60.0" prefWidth="307.0" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF;">
             <children>
-                <HBox spacing="70.0" alignment="CENTER_LEFT">
+                <HBox layoutX="40" layoutY="10" spacing="50.0" alignment="CENTER_LEFT">
                     <children>
-                        <ImageView fitHeight="68.0" fitWidth="58.0" pickOnBounds="false" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../../images/iconName.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="labelName" alignment="CENTER_LEFT" text="Juan Perez" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-font-style: italic;" />
-                        <ImageView fitHeight="68.0" fitWidth="58.0" pickOnBounds="false" preserveRatio="true">
+                        <Label fx:id="labelName" alignment="CENTER_LEFT" text="Juan Perez" style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-font-style: italic;" />
+                        <ImageView fitHeight="45.0" fitWidth="43.0" pickOnBounds="false" preserveRatio="true">
                             <image>
                                 <Image url="@../../../images/iconCode.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="labelCode" alignment="CENTER_LEFT" text="20221789" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-font-style: italic;" />
+                        <Label fx:id="labelCode" alignment="CENTER_LEFT" text="20221789" style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-font-style: italic;" />
                     </children>
                 </HBox>
             </children>
         </AnchorPane>
-        <Label alignment="CENTER" text="BIENVENIDO A GESTION DE TUTORIAS" style="-fx-font-size: 20px; -fx-font-weight: bold "/>
+        <VBox alignment="CENTER" spacing="20.0">
+            <Label alignment="CENTER" text="BIENVENIDO A GESTIÓN DE TUTORIAS" style="-fx-font-size: 16px; -fx-font-weight: bold "/>
 
-        <HBox spacing="10.0" alignment="CENTER_LEFT">
-            <children>
-                <VBox spacing="10.0" alignment="CENTER">
-                    <children>
-                        <Button fx:id="findTutor" text="Buscar Tutor" onAction="#switchToFindTutor"/>
-                        <Button fx:id="addTutoring" text="Agendar Tutoria" onAction="#switchToAddTutoring"/>
-                        <Button fx:id="deleteTutoring" text="Cancelar Tutoria" onAction="#switchToDeleteTutoring"/>
-                        <Button fx:id="showTutoring" text="Mostrar tutorias agendadas" onAction="#switchToShowTutoring"/>
-                    </children>
-                    <Button fx:id="close" text="salir" onAction="#switchClose" style="-fx-background-color: #6699CC; -fx-border-color: #D6DBDF;"/>
-                </VBox>
-                <ImageView fitHeight="320.0" fitWidth="372.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../images/uptc.jpeg" />
-                    </image>
-                </ImageView>
-            </children>
-        </HBox>
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <children>
+                    <VBox spacing="10.0" alignment="CENTER">
+                        <children>
+                            <Button fx:id="findTutor" text="Buscar Tutor" onAction="#switchToFindTutor"/>
+                            <Button fx:id="addTutoring" text="Agendar Tutoria" onAction="#switchToAddTutoring"/>
+                            <Button fx:id="deleteTutoring" text="Cancelar Tutoria" onAction="#switchToDeleteTutoring"/>
+                            <Button fx:id="showTutoring" text="Mostrar tutorias agendadas" onAction="#switchToShowTutoring"/>
+                        </children>
+                    </VBox>
+                    <ImageView fitHeight="320.0" fitWidth="372.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../../../images/uptc.jpeg" />
+                        </image>
+                    </ImageView>
+                </children>
+            </HBox>
+        </VBox>
+        <Button fx:id="close" text="Salir" onAction="#switchClose" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF; -fx-text-fill: #FFFFFF;"/>
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 </VBox>
+
 
 

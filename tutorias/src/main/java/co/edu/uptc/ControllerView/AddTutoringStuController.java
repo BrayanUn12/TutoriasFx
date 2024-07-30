@@ -127,6 +127,7 @@ public class AddTutoringStuController implements Initializable {
     }
 
     private void switchTutoringAdd() {
+
         VBox popupContent = new VBox();
         popupContent.setAlignment(Pos.CENTER);
         popupContent.setSpacing(20);
@@ -141,7 +142,6 @@ public class AddTutoringStuController implements Initializable {
         popupStage.setTitle("Tutoria Agendada");
 
         Button agendarButton = new Button("Aceptar");
-        agendarButton.setStyle("-fx-background-color: #66FF33; -fx-border-color: #D6DBDF;");
         agendarButton.setOnAction(e -> {
             popupStage.close();
             try {

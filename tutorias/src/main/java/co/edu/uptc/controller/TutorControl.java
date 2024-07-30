@@ -110,7 +110,7 @@ public class TutorControl {
 
                 .create();
 
-            return gson.fromJson(files.readJsonFile("C:\\Users\\braya\\Downloads\\Programacion2\\ProyectoTutoFxHelp\\ProyectoTutoFxNew\\ProyectoTutoFx\\tutorias\\src\\main\\java\\co\\edu\\uptc\\persistence\\Tutores.json"), listType);
+            return gson.fromJson(files.readJsonFile("src/main/java/co/edu/uptc/persistence/Tutores.json"), listType);
 
         }
 
@@ -154,7 +154,7 @@ public class TutorControl {
 
         
 
-            try (Reader reader = new FileReader("ProyectoTutoFxNew\\ProyectoTutoFx\\tutorias\\src\\main\\java\\co\\edu\\uptc\\persistence\\Tutores.json")) {
+            try (Reader reader = new FileReader("src/main/java/co/edu/uptc/persistence/Tutores.json")) {
 
             Tutor[] tutorsArray = gson.fromJson(reader, Tutor[].class);
 
@@ -176,7 +176,7 @@ public class TutorControl {
 
         
 
-            try (Writer writer = new FileWriter("ProyectoTutoFxNew\\ProyectoTutoFx\\tutorias\\src\\main\\java\\co\\edu\\uptc\\persistence\\Tutores.json")) {
+            try (Writer writer = new FileWriter("src/main/java/co/edu/uptc/persistence/Tutores.json")) {
 
             Gson gson = new GsonBuilder()
 

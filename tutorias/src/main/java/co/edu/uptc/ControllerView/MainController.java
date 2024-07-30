@@ -36,7 +36,7 @@ public class MainController {
                 }else if (findIdTutor(idUser) != null){
                     App.setRoot("tutor");
                 }else {
-                   alertShow("El ID no existe");
+                    alertShow("El ID no existe");
                 }
             }
         }catch (Exception e){

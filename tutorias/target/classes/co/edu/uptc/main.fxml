@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.MainController">
     <children>
         <AnchorPane layoutX="147.0" layoutY="22.0" prefHeight="357.0" prefWidth="307.0" style="-fx-border-color: #D6DBDF; -fx-background-color: #FDFEFE;">
             <children>
@@ -22,7 +22,7 @@
                     </children>
                 </AnchorPane>
 
-                <Label layoutX="70.0" layoutY="172.0" text="Identificación" style="-fx-font-size: 15px; -fx-font-family: 'Bitstream Charter'"/>
+                <Label layoutX="70.0" layoutY="172.0" text="Identificación" style="-fx-font-size: 15px; -fx-font-family: 'Abyssinica SIL'"/>
 
                 <TextField fx:id="idUser" layoutX="70.0" layoutY="200.0" prefHeight="37.0" prefWidth="211.0" promptText="Ingresé su Id.">
                     <font>
@@ -44,5 +44,3 @@
         </AnchorPane>
     </children>
 </AnchorPane>
-
-

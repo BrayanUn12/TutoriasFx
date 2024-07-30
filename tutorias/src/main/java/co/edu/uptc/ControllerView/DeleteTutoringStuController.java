@@ -139,7 +139,6 @@ public class DeleteTutoringStuController implements Initializable {
         popupStage.setTitle("Tutoria cancelada");
 
         Button agendarButton = new Button("Aceptar");
-        agendarButton.setStyle("-fx-background-color: #66FF33; -fx-border-color: #D6DBDF;");
         agendarButton.setOnAction(e -> {
             popupStage.close();
             try {
