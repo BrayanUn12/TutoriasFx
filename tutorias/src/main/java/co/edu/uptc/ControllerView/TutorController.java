@@ -44,12 +44,10 @@ public class TutorController implements Initializable{
 //    }
     @Override
     public void initialize (URL location, ResourceBundle resources) {
-//        initializeLabel();
-
         InteractionClass<Tutor> interactionInstance = InteractionClass.getInstance();
-
         currentTutor = interactionInstance.getObject();
         tutorControl = new TutorControl();
+        labelName.setText(currentTutor.getFirstName() + " " + currentTutor.getLastName());
     }
 
 
@@ -197,7 +195,7 @@ public class TutorController implements Initializable{
     //
 
     @FXML
-    public void switchToDElete () throws IOException {
+    public void switchToDelete () throws IOException {
 
     App.setRoot("deleteInfoTutor");
 

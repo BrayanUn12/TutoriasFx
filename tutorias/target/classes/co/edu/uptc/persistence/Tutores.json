@@ -1,23 +1,11 @@
 [
   {
     "id": 77,
-    "firstName": "Juan",
-    "lastName": "Perez",
+    "firstName": "Camilo",
+    "lastName": "Soto",
     "calendarios": [
       {
-        "nombre": "Lunes",
-        "eventos": [
-          {
-            "nombre": "Biologia",
-            "descripcion": "Flores",
-            "horaInicio": "09:00:00",
-            "horaFinal": "10:30:00",
-            "inscrito": false
-          }
-        ]
-      },
-      {
-        "nombre": "pp",
+        "nombre": "Miercoles",
         "eventos": []
       },
       {
@@ -25,19 +13,158 @@
         "eventos": [
           {
             "nombre": "Calculo",
-            "descripcion": "Vec",
+            "descripcion": "Integrales",
             "horaInicio": "01:00:00",
-            "horaFinal": "01:30:00",
-            "inscrito": true
+            "horaFinal": "02:30:00",
+            "inscrito": false
+          },
+          {
+            "nombre": "Fisica",
+            "descripcion": "MRU",
+            "horaInicio": "10:30:00",
+            "horaFinal": "11:00:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Lunes",
+        "eventos": [
+          {
+            "nombre": "Calculo",
+            "descripcion": "Derivadas",
+            "horaInicio": "02:00:00",
+            "horaFinal": "02:30:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Jueves",
+        "eventos": []
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "firstName": "Rodrigo",
+    "lastName": "Maldonado",
+    "calendarios": [
+      {
+        "nombre": "Miercoles",
+        "eventos": [
+          {
+            "nombre": "Programacion",
+            "descripcion": "POO",
+            "horaInicio": "05:00:00",
+            "horaFinal": "06:00:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Jueves",
+        "eventos": [
+          {
+            "nombre": "Programacion",
+            "descripcion": "herencia",
+            "horaInicio": "03:00:00",
+            "horaFinal": "03:30:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Lunes",
+        "eventos": [
+          {
+            "nombre": "Algoritmos y Programación",
+            "descripcion": "Setters and Getters",
+            "horaInicio": "03:00:00",
+            "horaFinal": "05:00:00",
+            "inscrito": false
           }
         ]
       }
     ]
   },
   {
-    "id": 22,
-    "firstName": "Felipe",
-    "lastName": "Maldonado",
+    "id": 56,
+    "firstName": "Carlos",
+    "lastName": "Salcedo",
+    "calendarios": [
+      {
+        "nombre": "Jueves",
+        "eventos": []
+      },
+      {
+        "nombre": "Miercoles",
+        "eventos": [
+          {
+            "nombre": "Programacion",
+            "descripcion": "POO",
+            "horaInicio": "04:00:00",
+            "horaFinal": "06:00:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Viernes",
+        "eventos": [
+          {
+            "nombre": "Programacion3 ",
+            "descripcion": "JavaFx",
+            "horaInicio": "10:00:00",
+            "horaFinal": "11:00:00",
+            "inscrito": false
+          },
+          {
+            "nombre": "Metodos",
+            "descripcion": "numero",
+            "horaInicio": "11:00:00",
+            "horaFinal": "11:03:00",
+            "inscrito": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "firstName": "Monica",
+    "lastName": "Viasus",
+    "calendarios": [
+      {
+        "nombre": "Viernes",
+        "eventos": [
+          {
+            "nombre": "Fisica",
+            "descripcion": "Fluidos",
+            "horaInicio": "01:00:00",
+            "horaFinal": "01:30:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Viernes",
+        "eventos": [
+          {
+            "nombre": "Fisica",
+            "descripcion": "Termodinamica",
+            "horaInicio": "04:00:00",
+            "horaFinal": "06:00:00",
+            "inscrito": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "firstName": "Sofia",
+    "lastName": "Benitez",
     "calendarios": [
       {
         "nombre": "Jueves",

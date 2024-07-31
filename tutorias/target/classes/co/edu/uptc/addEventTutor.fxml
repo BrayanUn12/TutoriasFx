@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-  
-
 <?import javafx.scene.control.Button?>
-
 <?import javafx.scene.control.CheckBox?>
-
 <?import javafx.scene.control.Label?>
-
 <?import javafx.scene.control.TextField?>
-
-<?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<?import javafx.scene.layout.AnchorPane?>
-
-
-
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.TutorController">
+<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.TutorController">
   <children>
-    <TextField fx:id="nombreField" layoutX="50.0" layoutY="50.0" promptText="Nombre"/>
-    <TextField fx:id="descripcionField" layoutX="50.0" layoutY="100.0" promptText="Descripción"/>
-    <TextField fx:id="diaField" layoutX="50.0" layoutY="150.0" promptText="Día"/>
-    <TextField fx:id="horaInicioField" layoutX="50.0" layoutY="200.0" promptText="Hora de Inicio"/>
-    <TextField fx:id="horaFinalField" layoutX="50.0" layoutY="250.0" promptText="Hora de Finalización"/>
-    <CheckBox fx:id="inscritoCheckBox" layoutX="50.0" layoutY="300.0" text="Inscrito"/>
-    <Button fx:id="GuardarEvento" layoutX="50.0" layoutY="350.0" text="Guardar Evento" onAction="#handleGuardarTutoria"/>
-    <Button fx:id="VolverMenu" layoutX="150.0" layoutY="350.0" text="Volver" onAction="#volverMenu"/>
+  <AnchorPane layoutX="1.0" layoutY="1.0" prefHeight="60.0" prefWidth="307.0" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF;">
+            <children>
+                <HBox alignment="CENTER_LEFT" layoutX="40" layoutY="10" spacing="50.0">
+                    <children>
+                        <ImageView fitHeight="45.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../images/iconName.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="labelName" alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="50.0" style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-font-style: italic;" text="Tutor" />
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+    <TextField fx:id="nombreField" layoutX="50.0" layoutY="91.0" promptText="Nombre" />
+    <TextField fx:id="descripcionField" layoutX="50.0" layoutY="126.0" promptText="Descripción" />
+    <TextField fx:id="diaField" layoutX="50.0" layoutY="162.0" promptText="Día" />
+    <TextField fx:id="horaInicioField" layoutX="50.0" layoutY="200.0" promptText="Hora de Inicio HH:mm" />
+    <TextField fx:id="horaFinalField" layoutX="50.0" layoutY="235.0" promptText="Hora de Finalización HH:mm" />
+    <CheckBox fx:id="inscritoCheckBox" layoutX="50.0" layoutY="274.0" text="Inscrito" />
+    <Button fx:id="GuardarEvento" layoutX="50.0" layoutY="312.0" onAction="#handleGuardarTutoria" prefHeight="26.0" prefWidth="95.0" text="Guardar" />
+    <Button fx:id="VolverMenu" layoutX="154.0" layoutY="312.0" onAction="#volverMenu" text="Volver" />
   </children>
 </AnchorPane>

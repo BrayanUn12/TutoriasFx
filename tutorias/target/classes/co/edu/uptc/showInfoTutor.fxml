@@ -3,12 +3,40 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 
 
-<VBox fx:id="showTutorInfo"  alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="189.0" prefWidth="243.0" spacing="20.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.ShowInfoTutor">
+<VBox fx:id="showTutorInfo"  alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.ShowInfoTutor">
    <children>
+   <AnchorPane layoutX="1.0" layoutY="1.0" prefHeight="60.0" prefWidth="307.0" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF;">
+            <children>
+                <HBox alignment="CENTER_LEFT" layoutX="40" layoutY="10" spacing="50.0">
+                    <children>
+                        <ImageView fitHeight="45.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../images/iconName.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="labelName" alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="50.0" style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-font-style: italic;" text="Tutor" />
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
       <Label prefHeight="23.0" prefWidth="70.0" text="Tutorias" textAlignment="CENTER" />
+      <TableView fx:id="table" prefHeight="200.0" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="colDia" text="Día"/>
+            <TableColumn fx:id="colMatter" text="Materia"/>
+            <TableColumn fx:id="colDescription" text="Tema"/>
+            <TableColumn fx:id="colTime" text="Hora Inicial y Final"/>
+        </columns>
+      </TableView>
       <Button fx:id="acceptButton" mnemonicParsing="false" text="Aceptar" onAction="#acceptButton" />
    </children>
    <padding>

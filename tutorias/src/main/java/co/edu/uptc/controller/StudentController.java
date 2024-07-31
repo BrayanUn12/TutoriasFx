@@ -66,7 +66,7 @@ public class StudentController {
         Archivos files = new Archivos();
         Gson gson = new GsonBuilder().registerTypeAdapter(LocalTime.class, localTimeDeserializer).setPrettyPrinting()
                 .create();
-        return gson.fromJson(files.readJsonFile("src/main/java/co/edu/uptc/persistence/Estudiantes.json"),
+        return gson.fromJson(files.readJsonFile("ProyectoTutoFxNew\\ProyectoTutoFx\\tutorias\\src\\main\\java\\co\\edu\\uptc\\persistence\\Estudiantes.json"),
                 listType);
     }
 

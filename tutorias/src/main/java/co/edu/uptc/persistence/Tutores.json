@@ -6,15 +6,7 @@
     "calendarios": [
       {
         "nombre": "Miercoles",
-        "eventos": [
-          {
-            "nombre": "Estadistica",
-            "descripcion": "Variables aleatorias",
-            "horaInicio": "01:00:00",
-            "horaFinal": "01:30:00",
-            "inscrito": false
-          }
-        ]
+        "eventos": []
       },
       {
         "nombre": "Martes",
@@ -24,6 +16,13 @@
             "descripcion": "Integrales",
             "horaInicio": "01:00:00",
             "horaFinal": "02:30:00",
+            "inscrito": false
+          },
+          {
+            "nombre": "Fisica",
+            "descripcion": "MRU",
+            "horaInicio": "10:30:00",
+            "horaFinal": "11:00:00",
             "inscrito": false
           }
         ]
@@ -57,7 +56,7 @@
           {
             "nombre": "Programacion",
             "descripcion": "POO",
-            "horaInicio": "04:00:00",
+            "horaInicio": "05:00:00",
             "horaFinal": "06:00:00",
             "inscrito": false
           }
@@ -96,15 +95,7 @@
     "calendarios": [
       {
         "nombre": "Jueves",
-        "eventos": [
-          {
-            "nombre": "Programacion",
-            "descripcion": "herencia",
-            "horaInicio": "03:00:00",
-            "horaFinal": "03:30:00",
-            "inscrito": false
-          }
-        ]
+        "eventos": []
       },
       {
         "nombre": "Miercoles",
@@ -114,6 +105,25 @@
             "descripcion": "POO",
             "horaInicio": "04:00:00",
             "horaFinal": "06:00:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Viernes",
+        "eventos": [
+          {
+            "nombre": "Programacion3 ",
+            "descripcion": "JavaFx",
+            "horaInicio": "10:00:00",
+            "horaFinal": "11:00:00",
+            "inscrito": false
+          },
+          {
+            "nombre": "Metodos",
+            "descripcion": "numero",
+            "horaInicio": "11:00:00",
+            "horaFinal": "11:03:00",
             "inscrito": false
           }
         ]

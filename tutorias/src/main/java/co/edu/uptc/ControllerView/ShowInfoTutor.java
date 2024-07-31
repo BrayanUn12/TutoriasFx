@@ -1,108 +1,79 @@
 package co.edu.uptc.ControllerView;
 
-  
+import co.edu.uptc.App;
+import co.edu.uptc.controller.Dia;
+import co.edu.uptc.controller.Evento;
+import co.edu.uptc.model.DataTable;
+import co.edu.uptc.model.Tutor;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
-
 import java.net.URL;
-
 import java.util.ResourceBundle;
-
-  
-
-import co.edu.uptc.App;
-
-import co.edu.uptc.controller.Dia;
-
-import co.edu.uptc.controller.Evento;
-
-import co.edu.uptc.model.Estudent;
-import co.edu.uptc.model.Tutor;
-
-import javafx.fxml.FXML;
-
-import javafx.fxml.Initializable;
-
-import javafx.geometry.Pos;
-
-import javafx.scene.control.Button;
-
-import javafx.scene.control.Label;
-
-import javafx.scene.layout.VBox;
-
-  
 
 public class ShowInfoTutor implements Initializable {
 
-  
+    @FXML
+    private TableView<DataTable> table;
 
- @FXML
+    @FXML
+    private TableColumn<DataTable, String> colDia;
 
- private VBox showTutorInfo;
+    @FXML
+    private TableColumn<DataTable, String> colMatter;
 
-  
+    @FXML
+    private TableColumn<DataTable, String> colDescription;
 
- @FXML
-
- private Button acceptButton ;
-
-  
-
-  public ShowInfoTutor() {
-
- }
-
-  
-
- @Override
-
- public void initialize(URL location, ResourceBundle resources){
-
-     InteractionClass<Tutor> interactionInstance = InteractionClass.getInstance();
-     Tutor tutor = interactionInstance.getObject();
-
- Label label = new Label("Informacion");
- 
- for (Dia dia : tutor.getCalendarios()) {
-
-      VBox eventosBox = new VBox();
-
-      eventosBox.setAlignment(Pos.CENTER);
-
-      eventosBox.setSpacing(10);
+    @FXML
+    private TableColumn<DataTable, String> colTime;
 
 
-      for (Evento evento: dia.getEventos()) {
+    @FXML
+    private Button acceptButton;
 
-        label = new Label("Tutoria "  + " "
+    private ObservableList<DataTable> eventList;
 
-        + evento.getNombre() + " " + evento.getHoraInicioFormatted() + " "
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        InteractionClass<Tutor> interactionInstance = InteractionClass.getInstance();
+        Tutor tutor = interactionInstance.getObject();
 
-        + evento.getHoraFinalFormatted());
+        eventList = FXCollections.observableArrayList();
+        for (Dia dia : tutor.getCalendarios()) {
+            for (Evento evento : dia.getEventos()) {
+                eventList.add(new DataTable(dia.getNombre(), evento));
+            }
+        }
 
-      }
+        colDia.setCellValueFactory(new PropertyValueFactory<>("diaNombre"));
+        colMatter.setCellValueFactory(new PropertyValueFactory<>("nombreEvento"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("descripcionEvento"));
+        colTime.setCellValueFactory(new PropertyValueFactory<>("horaEvento"));
 
-      eventosBox.getChildren().addAll(label);
-
-      showTutorInfo.getChildren().add(eventosBox);
-
-      acceptButton.setAlignment(Pos.BOTTOM_CENTER);
-
-      eventosBox.getChildren().add(acceptButton);
+        table.setItems(eventList);
+        adjustColumnWidths();
 
     }
 
+    private void adjustColumnWidths() {
+      double columnCount = 4.0; // El número total de columnas
+
+      colDia.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+      colMatter.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+      colDescription.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+      colTime.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
   }
 
-  
-
-  public void acceptButton() throws IOException {
-
-    App.setRoot("tutor");
-
-  }
-
-  
-
+    public void acceptButton() throws IOException {
+        App.setRoot("tutor");
+    }
 }
