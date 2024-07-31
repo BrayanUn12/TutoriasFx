@@ -16,6 +16,7 @@ import co.edu.uptc.controller.Dia;
 
 import co.edu.uptc.controller.Evento;
 
+import co.edu.uptc.model.Estudent;
 import co.edu.uptc.model.Tutor;
 
 import javafx.fxml.FXML;
@@ -58,9 +59,8 @@ public class ShowInfoTutor implements Initializable {
 
  public void initialize(URL location, ResourceBundle resources){
 
-  
-
- Tutor tutor = InteractionClass.getInstance().getTutor();
+     InteractionClass<Tutor> interactionInstance = InteractionClass.getInstance();
+     Tutor tutor = interactionInstance.getObject();
 
  Label label = new Label("Informacion");
  

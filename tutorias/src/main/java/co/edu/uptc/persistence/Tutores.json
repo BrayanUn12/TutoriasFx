@@ -1,90 +1,94 @@
 [
-    {
-      "id": 77,
-      "firstName": "Camilo",
-      "lastName": "Soto",
-      "calendarios": [
-        {
-          "nombre": "Miercoles",
-          "eventos": [
-            {
-              "nombre": "Estadistica",
-              "descripcion": "Variables aleatorias",
-              "horaInicio": "01:00:00",
-              "horaFinal": "01:30:00",
-              "inscrito": false
-            }
-          ]
-        },
-        {
-          "nombre": "Martes",
-          "eventos": [
-            {
-              "nombre": "Calculo",
-              "descripcion": "Integrales",
-              "horaInicio": "01:00:00",
-              "horaFinal": "02:30:00",
-              "inscrito": false
-            }
-          ]
-        },
-        {
-          "nombre": "Lunes",
-          "eventos": [
-            {
-              "nombre": "Calculo",
-              "descripcion": "Derivadas",
-              "horaInicio": "02:00:00",
-              "horaFinal": "02:30:00",
-              "inscrito": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 22,
-      "firstName": "Rodrigo",
-      "lastName": "Maldonado",
-      "calendarios": [
-        {
-          "nombre": "Miercoles",
-          "eventos": [
-            {
-              "nombre": "Programacion",
-              "descripcion": "POO",
-              "horaInicio": "04:00:00",
-              "horaFinal": "06:00:00",
-              "inscrito": false
-            }
-          ]
-        },
-        {
-          "nombre": "Jueves",
-          "eventos": [
-            {
-              "nombre": "Programacion",
-              "descripcion": "herencia",
-              "horaInicio": "03:00:00",
-              "horaFinal": "03:30:00",
-              "inscrito": false
-            }
-          ]
-        },
-        {
-          "nombre": "Lunes",
-          "eventos": [
-            {
-              "nombre": "Algoritmos y Programación",
-              "descripcion": "Setters and Getters",
-              "horaInicio": "03:00:00",
-              "horaFinal": "05:00:00",
-              "inscrito": false
-            }
-          ]
-        }
-      ]
-    },
+  {
+    "id": 77,
+    "firstName": "Camilo",
+    "lastName": "Soto",
+    "calendarios": [
+      {
+        "nombre": "Miercoles",
+        "eventos": [
+          {
+            "nombre": "Estadistica",
+            "descripcion": "Variables aleatorias",
+            "horaInicio": "01:00:00",
+            "horaFinal": "01:30:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Martes",
+        "eventos": [
+          {
+            "nombre": "Calculo",
+            "descripcion": "Integrales",
+            "horaInicio": "01:00:00",
+            "horaFinal": "02:30:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Lunes",
+        "eventos": [
+          {
+            "nombre": "Calculo",
+            "descripcion": "Derivadas",
+            "horaInicio": "02:00:00",
+            "horaFinal": "02:30:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Jueves",
+        "eventos": []
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "firstName": "Rodrigo",
+    "lastName": "Maldonado",
+    "calendarios": [
+      {
+        "nombre": "Miercoles",
+        "eventos": [
+          {
+            "nombre": "Programacion",
+            "descripcion": "POO",
+            "horaInicio": "04:00:00",
+            "horaFinal": "06:00:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Jueves",
+        "eventos": [
+          {
+            "nombre": "Programacion",
+            "descripcion": "herencia",
+            "horaInicio": "03:00:00",
+            "horaFinal": "03:30:00",
+            "inscrito": false
+          }
+        ]
+      },
+      {
+        "nombre": "Lunes",
+        "eventos": [
+          {
+            "nombre": "Algoritmos y Programación",
+            "descripcion": "Setters and Getters",
+            "horaInicio": "03:00:00",
+            "horaFinal": "05:00:00",
+            "inscrito": false
+          }
+        ]
+      }
+    ]
+  },
   {
     "id": 56,
     "firstName": "Carlos",
@@ -166,5 +170,4 @@
       }
     ]
   }
-  ]
-  
+]

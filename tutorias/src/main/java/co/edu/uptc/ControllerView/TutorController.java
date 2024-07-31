@@ -3,93 +3,74 @@ package co.edu.uptc.ControllerView;
   
 
 import co.edu.uptc.App;
-
-import co.edu.uptc.controller.Calendario;
-
 import co.edu.uptc.controller.Dia;
-
 import co.edu.uptc.controller.Evento;
-
 import co.edu.uptc.controller.TutorControl;
-
+import co.edu.uptc.model.Estudent;
 import co.edu.uptc.model.Tutor;
-
-import javafx.collections.FXCollections;
-
-import javafx.collections.ObservableList;
-
 import javafx.fxml.FXML;
-
 import javafx.fxml.Initializable;
-
-import javafx.scene.control.Alert;
-
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 
-import javafx.scene.control.CheckBox;
-
-import javafx.scene.control.ComboBox;
-
-import javafx.scene.control.TableColumn;
-
-import javafx.scene.control.TableView;
-
-import javafx.scene.control.TextField;
-
-import javafx.scene.control.cell.PropertyValueFactory;
-
-  
-
 import java.io.IOException;
-
 import java.net.URL;
-
 import java.time.LocalTime;
-
 import java.util.List;
-
 import java.util.ResourceBundle;
-
-  
 
 public class TutorController implements Initializable{
 
-  @FXML
-  private TextField nombreField, descripcionField, horaInicioField, horaFinalField, diaField, nombreFieldDelete,nombreBuscarField, nombreFieldEdit, descripcionFieldEdit, horaInicioFieldEdit, horaFinalFieldEdit;
 
-  @FXML
-  private CheckBox inscritoCheckBox;
+    @FXML
+    private Label labelName;
 
-  
-  private Tutor currentTutor;
-  private TutorControl tutorControl;
-  private Evento eventoact;
+    @FXML
+    private TextField nombreField, descripcionField, horaInicioField, horaFinalField, diaField, nombreFieldDelete,nombreBuscarField, nombreFieldEdit, descripcionFieldEdit, horaInicioFieldEdit, horaFinalFieldEdit;
 
-  @Override
-  public void initialize (URL location, ResourceBundle resources) {
-    currentTutor = InteractionClass.getInstance().getTutor();
-    tutorControl = new TutorControl();
-  }
+    @FXML
+    private CheckBox inscritoCheckBox;
 
-  
 
- @FXML
-  public void switchTutor() throws IOException {
- App.setRoot("tutor");
+    private Tutor currentTutor;
+    private TutorControl tutorControl;
+    private Evento eventoact;
 
- }
+//    private void initializeLabel() {
+//        InteractionClass<Tutor> interactionInstance = InteractionClass.getInstance();
+//        Tutor tutor = interactionInstance.getObject();
+//        labelName.setText(tutor.getFirstName() + " " + tutor.getLastName());
+//
+//    }
+    @Override
+    public void initialize (URL location, ResourceBundle resources) {
+//        initializeLabel();
 
-  
+        InteractionClass<Tutor> interactionInstance = InteractionClass.getInstance();
 
- @FXML
-  public void volverMenuPrincipal() throws IOException{
+        currentTutor = interactionInstance.getObject();
+        tutorControl = new TutorControl();
+    }
+
+
+
+    @FXML
+    public void switchTutor() throws IOException {
+    App.setRoot("tutor");
+
+    }
+
+
+
+    @FXML
+    public void volverMenuPrincipal() throws IOException{
     App.setRoot("main");
-  }
+    }
 
-  
 
-  @FXML
-  public void handleGuardarTutoria() {
+
+    @FXML
+    public void handleGuardarTutoria() {
 
     try {
 
@@ -105,15 +86,15 @@ public class TutorController implements Initializable{
 
       boolean inscrito = inscritoCheckBox.isSelected();
 
-  
+
 
       Evento evento = new Evento(nombre, descripcion, horaInicio, horaFinal, inscrito);
 
-  
+
 
       List<Dia> calendarios= currentTutor.getCalendarios();
 
-  
+
 
       Dia dia = calendarios.stream()
 
@@ -123,7 +104,7 @@ public class TutorController implements Initializable{
 
           .orElse(new Dia(dayName));
 
-  
+
 
       if (dia.addEvento(evento)) {
 
@@ -143,7 +124,7 @@ public class TutorController implements Initializable{
 
         }
 
-      }  
+      }
 
         tutorControl.saveTutorsToJson();
 
@@ -161,13 +142,13 @@ public class TutorController implements Initializable{
 
       }
 
-  
+
 
     }
 
-  
 
-  private void showAlert(AlertType alertType, String title, String message) {
+
+    private void showAlert(AlertType alertType, String title, String message) {
 
     Alert alert = new Alert(alertType);
 
@@ -179,53 +160,53 @@ public class TutorController implements Initializable{
 
     alert.showAndWait();
 
-  }
+    }
 
-  
 
-  @FXML
-  public void volverMenu() throws IOException{
+
+    @FXML
+    public void volverMenu() throws IOException{
 
     App.setRoot("tutor");
 
-  }
+    }
 
-  
-  
 
-  @FXML
-  public void switchToAddTutoring() throws IOException {
+
+
+    @FXML
+    public void switchToAddTutoring() throws IOException {
 
     App.setRoot("addEventTutor");
 
-  }
+    }
 
-  
-  
-  
 
-  @FXML
-  public void switchToShow() throws IOException {
+
+
+
+    @FXML
+    public void switchToShow() throws IOException {
 
     App.setRoot("showInfoTutor");
 
-  }
+    }
 
-  
 
-  //
 
-  @FXML
-  public void switchToDElete () throws IOException {
+    //
+
+    @FXML
+    public void switchToDElete () throws IOException {
 
     App.setRoot("deleteInfoTutor");
 
-  }
+    }
 
-  
 
-  @FXML
-  public void handleBorrarTutoria (){
+
+    @FXML
+    public void handleBorrarTutoria (){
 
     try {
 
@@ -279,8 +260,8 @@ public class TutorController implements Initializable{
 
       }
 
-  
-  
+
+
 
     } catch (Exception e ) {
 
@@ -290,39 +271,39 @@ public class TutorController implements Initializable{
 
     }
 
-  }
+    }
 
-  
 
-  @FXML
-  public void switchToMain () throws IOException{
+
+    @FXML
+    public void switchToMain () throws IOException{
 
     App.setRoot("tutor");
 
-  }
+    }
 
-  
-  
-  
-  
 
-  @FXML
-  public void switchToUpdate () throws IOException {
+
+
+
+
+    @FXML
+    public void switchToUpdate () throws IOException {
 
     App.setRoot("editTutor");
 
-  }
+    }
 
-  
 
-  @FXML
-  public void handleBuscarTutoria() throws IOException{
+
+    @FXML
+    public void handleBuscarTutoria() throws IOException{
 
     String nombreBuscar = nombreBuscarField.getText();
 
     List<Dia> calendarios = currentTutor.getCalendarios();
 
-  
+
 
     for (Dia dia : calendarios) {
 
@@ -348,17 +329,17 @@ public class TutorController implements Initializable{
 
     }
 
-  
+
 
     showAlert(Alert.AlertType.ERROR, "Error", "No se encontró una tutoría con el nombre especificado.");
 
-  }
+    }
 
-  
-  
 
-  @FXML
-  public void handleGuardarTutoriaEditada() {
+
+
+    @FXML
+    public void handleGuardarTutoriaEditada() {
 
     if (eventoact == null) {
 
@@ -368,7 +349,7 @@ public class TutorController implements Initializable{
 
     }
 
-  
+
 
     try {
 
@@ -380,7 +361,7 @@ public class TutorController implements Initializable{
 
       eventoact.setHoraFinal(LocalTime.parse(horaFinalFieldEdit.getText()));
 
-  
+
 
       for (Tutor tutor : tutorControl.getTutors()) {
 
@@ -399,13 +380,13 @@ public class TutorController implements Initializable{
       showAlert(Alert.AlertType.ERROR, "Error", "Hubo un problema al editar la tutoría. Por favor, verifica los datos ingresados.");
       e.printStackTrace();
     }
-  }
+    }
 
-  
 
-  @FXML
-  public void switchToMainWindow () throws IOException{
+
+    @FXML
+    public void switchToMainWindow () throws IOException{
     App.setRoot("tutor");
-  }
+    }
 
-}
+    }

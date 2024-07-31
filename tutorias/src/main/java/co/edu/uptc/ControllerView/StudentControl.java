@@ -46,7 +46,8 @@ public class StudentControl implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Estudent student = InteractionClass.getInstance().getStudent();
+        InteractionClass<Estudent> interactionInstance = InteractionClass.getInstance();
+        Estudent student = interactionInstance.getObject();
         labelName.setText(student.getFirstName() + " " + student.getLastName() );
         String code = String.valueOf(student.getCodigo());
         labelCode.setText(code);
@@ -56,6 +57,7 @@ public class StudentControl implements Initializable {
         setButtonSize(addTutoring, 210, 30);
         setButtonSize(deleteTutoring, 210, 30);
         setButtonSize(showTutoring, 210, 30);
+
     }
 
     private void setButtonSize(Button button, double width, double height) {

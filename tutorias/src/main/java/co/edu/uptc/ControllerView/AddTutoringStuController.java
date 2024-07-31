@@ -56,8 +56,9 @@ public class AddTutoringStuController implements Initializable {
         App.setRoot("addTutoringStudent");
     }
 
-    public void initializeLabel() {
-        Estudent student = InteractionClass.getInstance().getStudent();
+    private void initializeLabel() {
+        InteractionClass<Estudent> interactionInstance = InteractionClass.getInstance();
+        Estudent student = interactionInstance.getObject();
         labelName.setText(student.getFirstName() + " " + student.getLastName());
         String code = String.valueOf(student.getCodigo());
         labelCode.setText(code);
@@ -65,16 +66,19 @@ public class AddTutoringStuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Estudent student = InteractionClass.getInstance().getStudent();
         initializeLabel();
 
+        InteractionClass<Estudent> interactionInstance = InteractionClass.getInstance();
+        Estudent student = interactionInstance.getObject();
         eventList = FXCollections.observableArrayList();
-        for (Dia dia : student.getCalendarios()) {
-            for (Evento evento : dia.getEventos()) {
-                if (!evento.isInscrito()) {
-                    DataTable dataTable = new DataTable(dia.getNombre(), evento);
-                    dataTable.setButton(createActionButton(dataTable)); // Añade el botón con el EventHandler
-                    eventList.add(dataTable);
+        if (student != null) {
+            for (Dia dia : student.getCalendarios()) {
+                for (Evento evento : dia.getEventos()) {
+                    if (!evento.isInscrito()) {
+                        DataTable dataTable = new DataTable(dia.getNombre(), evento);
+                        dataTable.setButton(createActionButton(dataTable));
+                        eventList.add(dataTable);
+                    }
                 }
             }
         }
@@ -89,6 +93,7 @@ public class AddTutoringStuController implements Initializable {
 
         adjustColumnWidths();
     }
+
     private Button createActionButton(DataTable dataTable) {
         Button actionButton = new Button("Agendar");
         actionButton.setStyle("-fx-background-color: #66FF33; -fx-border-color: #D6DBDF;");
@@ -96,16 +101,13 @@ public class AddTutoringStuController implements Initializable {
         actionButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (!dataTable.getEvento().isInscrito() ) {
+                if (!dataTable.getEvento().isInscrito()) {
                     dataTable.getEvento().setInscrito(true);
                     switchTutoringAdd();
                     table.refresh();
                 }
-                // Aquí puedes añadir la lógica para agendar la tutoría
-                // Por ejemplo, marcar el evento como inscrito y actualizar la tabla
                 dataTable.setEstadoEvento("Agendada");
                 eventList.remove(dataTable);
-                // Muestra el popup de confirmación
             }
         });
 
@@ -159,4 +161,5 @@ public class AddTutoringStuController implements Initializable {
         popupStage.showAndWait();
     }
 }
+
 

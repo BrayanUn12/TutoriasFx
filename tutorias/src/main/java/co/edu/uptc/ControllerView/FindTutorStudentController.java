@@ -58,14 +58,16 @@ public class FindTutorStudentController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Estudent student = InteractionClass.getInstance().getStudent();
+        InteractionClass<Estudent> interactionInstance = InteractionClass.getInstance();
+        Estudent student = interactionInstance.getObject();
         labelName.setText(student.getFirstName() + " " + student.getLastName());
         labelCode.setText(String.valueOf(student.getCodigo()));
         loadTutors();
     }
 
     public void showMattersTutor() {
-        Estudent student = InteractionClass.getInstance().getStudent();
+        InteractionClass<Estudent> interactionInstance = InteractionClass.getInstance();
+        Estudent student = interactionInstance.getObject();
         String selectedTutorName = comboBox.getSelectionModel().getSelectedItem();
 
         eventList = FXCollections.observableArrayList();

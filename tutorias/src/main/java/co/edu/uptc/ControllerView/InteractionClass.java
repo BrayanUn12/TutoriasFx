@@ -1,51 +1,36 @@
 package co.edu.uptc.ControllerView;
 
-import co.edu.uptc.model.Estudent;
-import co.edu.uptc.model.Tutor;
-
-public final class InteractionClass {
+public final class InteractionClass<T> {
 
     private static InteractionClass instance;
 
-    private Estudent student;
+    private T object;
 
-    private Tutor tutor;
-
-
-    public InteractionClass() {
+    private InteractionClass() {
     }
 
-    private  InteractionClass(Estudent student) {
-        this.student = student;
+    private InteractionClass(T object) {
+        this.object = object;
     }
-    public static InteractionClass getInstance(Estudent student){
-        if(instance == null){
-            instance = new InteractionClass(student);
+
+    public static <T> InteractionClass<T> getInstance(T object) {
+        if (instance == null) {
+            instance = new InteractionClass<>(object);
+        } else {
+            instance.object = object;
         }
         return instance;
     }
 
-    private  InteractionClass(Tutor tutor) {
-        this.tutor = tutor;
-    }
-
-    public static InteractionClass getInstance(Tutor tutor){
-        if(instance == null){
-            instance = new InteractionClass(tutor);
-        }
-        return instance;
-    }
-    public Estudent getStudent() {
-        return student;
-    }
-    public static InteractionClass getInstance(){
-        if(instance == null){
-            instance = new InteractionClass();
+    public static <T> InteractionClass<T> getInstance() {
+        if (instance == null) {
+            instance = new InteractionClass<>();
         }
         return instance;
     }
 
-    public Tutor getTutor(){
-        return tutor;
+    public T getObject() {
+        return object;
     }
 }
+

@@ -57,7 +57,8 @@ public class DeleteTutoringStuController implements Initializable {
     }
 
     public void initializeLabel() {
-        Estudent student = InteractionClass.getInstance().getStudent();
+        InteractionClass<Estudent> interactionInstance = InteractionClass.getInstance();
+        Estudent student = interactionInstance.getObject();
         labelName.setText(student.getFirstName() + " " + student.getLastName());
         String code = String.valueOf(student.getCodigo());
         labelCode.setText(code);
@@ -65,7 +66,8 @@ public class DeleteTutoringStuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Estudent student = InteractionClass.getInstance().getStudent();
+        InteractionClass<Estudent> interactionInstance = InteractionClass.getInstance();
+        Estudent student = interactionInstance.getObject();
         initializeLabel();
 
         eventList = FXCollections.observableArrayList();
