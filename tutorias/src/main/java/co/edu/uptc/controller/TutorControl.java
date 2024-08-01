@@ -110,7 +110,7 @@ public class TutorControl {
 
                 .create();
 
-            return gson.fromJson(files.readJsonFile("ProyectoTutoFxNew\\ProyectoTutoFx\\tutorias\\src\\main\\java\\co\\edu\\uptc\\persistence\\Tutores.json"), listType);
+            return gson.fromJson(files.readJsonFile("src/main/java/co/edu/uptc/persistence/Tutores.json"), listType);
 
         }
 
@@ -154,7 +154,7 @@ public class TutorControl {
 
         
 
-            try (Reader reader = new FileReader("ProyectoTutoFxNew\\ProyectoTutoFx\\tutorias\\src\\main\\java\\co\\edu\\uptc\\persistence\\Tutores.json")) {
+            try (Reader reader = new FileReader("src/main/java/co/edu/uptc/persistence/Tutores.json")) {
 
             Tutor[] tutorsArray = gson.fromJson(reader, Tutor[].class);
 
@@ -173,7 +173,7 @@ public class TutorControl {
         
 
         public void saveTutorsToJson() {
-    try (BufferedWriter writer = new BufferedWriter(new FileWriter("ProyectoTutoFxNew\\ProyectoTutoFx\\tutorias\\src\\main\\java\\co\\edu\\uptc\\persistence\\Tutores.json"))) {
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/java/co/edu/uptc/persistence/Tutores.json"))) {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(LocalTime.class, new LocalTimeAdapter())
                 .setPrettyPrinting()

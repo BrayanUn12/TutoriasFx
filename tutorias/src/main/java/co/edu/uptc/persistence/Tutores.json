@@ -12,7 +12,7 @@
         "nombre": "Martes",
         "eventos": [
           {
-            "nombre": "Calculo",
+            "nombre": "Matematicas",
             "descripcion": "Integrales",
             "horaInicio": "01:00:00",
             "horaFinal": "02:30:00",

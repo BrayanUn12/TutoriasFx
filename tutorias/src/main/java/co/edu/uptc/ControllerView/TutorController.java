@@ -184,7 +184,7 @@ public class TutorController implements Initializable {
 
     @FXML
     public void switchToUpdate() throws IOException {
-        App.setRoot("editTutor");
+        App.setRoot("tableEdit");
     }
 
     @FXML

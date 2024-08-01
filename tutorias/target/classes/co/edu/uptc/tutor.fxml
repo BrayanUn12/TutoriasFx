@@ -31,14 +31,13 @@
                 <children>
                     <VBox alignment="CENTER" spacing="10.0">
                         <children>
-                            <Button fx:id="addEvent" onAction="#switchToAddTutoring" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF; -fx-text-fill: #FFFFFF;" text="Agregar nueva tutoría" />
-                            <Button fx:id="viewEvents" onAction="#switchToShow" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF; -fx-text-fill: #FFFFFF;" text="Ver Eventos" />
-                            <Button fx:id="deleteEvent" onAction="#switchToDelete" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF; -fx-text-fill: #FFFFFF;" text="Borrar Evento" />
-                            <Button fx:id="updateEvent" onAction="#switchToUpdate" prefHeight="27.0" prefWidth="137.0" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF; -fx-text-fill: #FFFFFF;" text="Modificar Evento" />
-                            <Button fx:id="menuPrincipal" onAction="#volverMenuPrincipal" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF; -fx-text-fill: #FFFFFF;" text="Salir" />
+                            <Button fx:id="addEvent" onAction="#switchToAddTutoring" prefHeight="30.0" prefWidth="210.0"  text="Agregar nueva tutoría" />
+                            <Button fx:id="viewEvents" onAction="#switchToShow" prefHeight="30.0" prefWidth="210.0" text="Ver Tutorias" />
+                            <Button fx:id="deleteEvent" onAction="#switchToDelete" prefHeight="30.0" prefWidth="210.0" text="Eliminar Tutoría" />
+                            <Button fx:id="updateEvent" onAction="#switchToUpdate" prefHeight="30.0" prefWidth="210.0" text="Modificar Tutoría" />
                         </children>
                     </VBox>
-                    <ImageView fitHeight="299.0" fitWidth="401.0" pickOnBounds="true" preserveRatio="true">
+                    <ImageView fitHeight="320.0" fitWidth="372.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                             <Image url="@../../../images/uptc.jpeg" />
                         </image>
@@ -46,6 +45,8 @@
                 </children>
             </HBox>
         </VBox>
+        <Button fx:id="menuPrincipal" onAction="#volverMenuPrincipal" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF; -fx-text-fill: #FFFFFF;" text="Salir" />
+
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

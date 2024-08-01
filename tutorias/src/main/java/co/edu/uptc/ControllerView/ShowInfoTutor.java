@@ -22,6 +22,9 @@ import java.util.ResourceBundle;
 public class ShowInfoTutor implements Initializable {
 
     @FXML
+    private Label labelName;
+
+    @FXML
     private TableView<DataTable> table;
 
     @FXML
@@ -46,7 +49,7 @@ public class ShowInfoTutor implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         InteractionClass<Tutor> interactionInstance = InteractionClass.getInstance();
         Tutor tutor = interactionInstance.getObject();
-
+        labelName.setText(tutor.getFirstName() + " " + tutor.getLastName());
         eventList = FXCollections.observableArrayList();
         for (Dia dia : tutor.getCalendarios()) {
             for (Evento evento : dia.getEventos()) {
@@ -65,13 +68,13 @@ public class ShowInfoTutor implements Initializable {
     }
 
     private void adjustColumnWidths() {
-      double columnCount = 4.0; // El número total de columnas
+        double columnCount = 4.0; // El número total de columnas
 
-      colDia.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
-      colMatter.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
-      colDescription.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
-      colTime.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
-  }
+        colDia.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+        colMatter.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+        colDescription.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+        colTime.prefWidthProperty().bind(table.widthProperty().divide(columnCount));
+    }
 
     public void acceptButton() throws IOException {
         App.setRoot("tutor");

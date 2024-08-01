@@ -1,43 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="393.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.DeleteTutorEvent">
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<VBox fx:id="tutoring" alignment="TOP_CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uptc.ControllerView.DeleteTutorEvent">
    <children>
-      <AnchorPane layoutX="-2.0" prefHeight="60.0" prefWidth="608.0" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF;">
+      <AnchorPane layoutX="1.0" layoutY="1.0" prefHeight="60.0" prefWidth="307.0" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF;">
          <children>
-            <HBox alignment="CENTER_LEFT" layoutX="40" layoutY="10" spacing="50.0">
+            <HBox layoutX="40" layoutY="10" spacing="50.0" alignment="CENTER_LEFT">
                <children>
                   <ImageView fitHeight="45.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/iconName.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="labelName" alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="185.0" style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-font-style: italic;" text="Tutor" />
+                  <Label fx:id="labelName" alignment="CENTER_LEFT" text="Juan Perez" style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-font-style: italic;" />
                </children>
             </HBox>
          </children>
       </AnchorPane>
-      <TableView fx:id="table" layoutX="5.0" layoutY="75.0" prefHeight="200.0" prefWidth="600.0">
+      <Label alignment="CENTER" text="Tutorias Agregadas" style="-fx-font-size: 20px; -fx-font-weight: bold"/>
+
+      <VBox spacing="10.0" alignment="CENTER_LEFT">
+         <Label layoutX="30.0" layoutY="153.0" text="Materia" />
+         <HBox spacing="20" alignment="CENTER_LEFT">
+            <TextField fx:id="nombreFieldDelete" prefHeight="45" prefWidth="100"/>
+            <Button layoutX="86.0" layoutY="150.0" mnemonicParsing="false" onAction="#handleBorrarTutoria" text="Borrar" />
+         </HBox>
+      </VBox>
+      <TableView fx:id="table" prefHeight="200.0" prefWidth="600.0">
          <columns>
-            <TableColumn fx:id="colDia" text="Día" />
-            <TableColumn fx:id="colMatter" text="Materia" />
-            <TableColumn fx:id="colDescription" text="Descripcion" />
-            <TableColumn fx:id="colTime" text="Hora Inicial y Final" />
-            <TableColumn fx:id="colAction" prefWidth="100.0" text="Accion" />
+            <TableColumn fx:id="colDia" text="Día"/>
+            <TableColumn fx:id="colMatter" text="Materia"/>
+            <TableColumn fx:id="colDescription" text="Tema"/>
+            <TableColumn fx:id="colTime" text="Hora Inicial y Final"/>
          </columns>
       </TableView>
-      <Button fx:id="acceptButton" layoutX="276.0" layoutY="287.0" mnemonicParsing="false" onAction="#acceptButton" text="Aceptar" />
+      <Button fx:id="buttonBack" alignment="BOTTOM_LEFT" text="Volver" onAction="#switchToMain" style="-fx-background-color: #FFCC00; -fx-border-color: #D6DBDF; -fx-text-fill: #000000;"/>
+
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
-</AnchorPane>
+</VBox>
