@@ -41,6 +41,7 @@ public class MainController {
             }
         }catch (Exception e){
             alertShow("Información no valida, ingrese su ID");
+            e.printStackTrace();
         }
     }
 

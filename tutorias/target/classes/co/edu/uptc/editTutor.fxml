@@ -19,7 +19,7 @@
                                 <Image url="@../../../images/iconName.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="labelName" alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="50.0" style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-font-style: italic;" text="Tutor" />
+                        <Label fx:id="labelName" alignment="CENTER_LEFT" prefHeight="32.0" prefWidth="192.0" style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-font-style: italic;" text="Tutor" />
                     </children>
                 </HBox>
             </children>

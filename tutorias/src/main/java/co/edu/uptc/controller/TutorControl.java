@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import java.util.List;
-
+import java.io.BufferedWriter;
 import java.io.FileReader;
 
 import java.io.FileWriter;
@@ -173,30 +173,17 @@ public class TutorControl {
         
 
         public void saveTutorsToJson() {
-
-        
-
-            try (Writer writer = new FileWriter("ProyectoTutoFxNew\\ProyectoTutoFx\\tutorias\\src\\main\\java\\co\\edu\\uptc\\persistence\\Tutores.json")) {
-
-            Gson gson = new GsonBuilder()
-
-            .registerTypeAdapter(LocalTime.class, new LocalTimeAdapter())
-
-            .setPrettyPrinting()
-
-            .create();
-
-            gson.toJson(tutors, writer);
-
-            } catch (IOException e) {
-
-            e.printStackTrace();
-
-            }
-
-        
-
-        }
+    try (BufferedWriter writer = new BufferedWriter(new FileWriter("ProyectoTutoFxNew\\ProyectoTutoFx\\tutorias\\src\\main\\java\\co\\edu\\uptc\\persistence\\Tutores.json"))) {
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(LocalTime.class, new LocalTimeAdapter())
+                .setPrettyPrinting()
+                .create();
+        gson.toJson(tutors, writer);
+        System.out.println("Archivo JSON escrito correctamente");
+    } catch (IOException e) {
+        System.out.println("Error al escribir el archivo JSON: " + e.getMessage());
+    }
+}
 
         
 
